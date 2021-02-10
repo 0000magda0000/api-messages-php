@@ -25,8 +25,9 @@ class Database{
       $this->db_name = substr($url["path"], 1);
       $this->username = $url["user"];
       $this->password = $url["pass"];
-    $conn;
     }
+
+    public $conn;
 
     // get the database connection
     public function getConnection(){
