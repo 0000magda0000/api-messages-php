@@ -15,7 +15,7 @@ retrieved (unsigned number)
 * PHP 7.3.11
 * mysql Ver 8.0.23 for osx10.15 on x86_64 (Homebrew)
 
-## Database creation
+## Database
 * mysql
 
 ## Prerequsites
@@ -23,7 +23,7 @@ In order to use the API run it on your local machine. Run the apache server with
 
 Move the project folder api-messages-php into your Sites folder (~/Sites). If you don't have a Sites folder create one and change your server settings accordingly.
 
-## Creating table on localhost
+## Creating table in database on localhost
 Use the following SQL statment to create the table messages:
 ```
 CREATE TABLE messages (
