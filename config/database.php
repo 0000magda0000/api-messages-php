@@ -18,13 +18,14 @@ class Database{
     private $db_name;
     private $username;
     private $password;
+
     public function __construct() {
       $this->url = parse_url(getenv("DATABASE_URL"));
       $this->host = $url["host"];
       $this->db_name = substr($url["path"], 1);
       $this->username = $url["user"];
       $this->password = $url["pass"];
-    public $conn;
+    $conn;
     }
 
     // get the database connection
