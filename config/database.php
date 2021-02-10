@@ -15,7 +15,7 @@ class Database{
     // specify database credentials
     private $url;
     public function __construct() {
-      $this->url = parse_url(getenv("DATABASE_URL");
+      $this->url = parse_url(getenv("DATABASE_URL"));
     }
 
     private $host = $url["host"];
