@@ -14,15 +14,18 @@ class Database{
 
     // specify database credentials
     private $url;
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
     public function __construct() {
       $this->url = parse_url(getenv("DATABASE_URL"));
-    }
-
-    private $host = $url["host"];
-    private $db_name = substr($url["path"], 1);
-    private $username = $url["user"];
-    private $password = $url["pass"];
+      $this->host = $url["host"];
+      $this->db_name = substr($url["path"], 1);
+      $this->username = $url["user"];
+      $this->password = $url["pass"];
     public $conn;
+    }
 
     // get the database connection
     public function getConnection(){
