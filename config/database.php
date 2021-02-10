@@ -2,10 +2,11 @@
 class Database{
 
     // specify your own database credentials
-    private $host = "us-cdbr-east-03.cleardb.com";
-    private $db_name = "heroku_394a42a4b5cb062";
-    private $username = "bbc08eb1da307f";
-    private $password = "c478dc6e";
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    private $host = $url["host"];
+    private $db_name = substr($url["path"], 1);
+    private $username = $url["user"];
+    private $password = $url["pass"];
     public $conn;
 
     // get the database connection
@@ -25,3 +26,4 @@ class Database{
 }
 ?>
 <?php
+
