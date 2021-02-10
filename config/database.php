@@ -3,10 +3,9 @@ class Database{
 
     // specify your own database credentials
     private $host = "us-cdbr-east-03.cleardb.com";
-    private $db_name = "apimessages";
+    private $db_name = "heroku_394a42a4b5cb062";
     private $username = "bbc08eb1da307f";
     private $password = "c478dc6e";
-    private database = "heroku_394a42a4b5cb062";
     public $conn;
 
     // get the database connection
