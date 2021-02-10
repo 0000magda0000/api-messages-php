@@ -13,7 +13,11 @@
 class Database{
 
     // specify database credentials
-    private $url = parse_url(getenv('mysql://bbc08eb1da307f:c478dc6e@us-cdbr-east-03.cleardb.com/heroku_394a42a4b5cb062?reconnect=true');
+    private $url;
+    public function __construct() {
+      $this->url = parse_url(getenv("DATABASE_URL");
+    }
+
     private $host = $url["host"];
     private $db_name = substr($url["path"], 1);
     private $username = $url["user"];
