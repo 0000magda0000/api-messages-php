@@ -1,0 +1,14 @@
+{
+    "name": "barthofer/api-messages-php",
+    "description": "REST API for maintaining messages",
+    "type": "rest-api",
+    "license": "GNU General Public License",
+    "authors": [
+        {
+            "name": "Magda Barthofer",
+            "email": "magda.barthofer@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
