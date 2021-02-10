@@ -23,6 +23,18 @@ In order to use the API run it on your local machine. Run the apache server with
 
 Move the project folder api-messages-php into your Sites folder (~/Sites). If you don't have a Sites folder create one and change your server settings accordingly.
 
+## Creating table on localhost
+Use the following SQL statment to create the table messages:
+```
+CREATE TABLE messages (
+  uuid VARCHAR(36) DEFAULT (uuid()),
+  content VARCHAR(255) NOT NULL,
+  counter INT UNSIGNED DEFAULT NULL,
+  created DATETIME NOT NULL DEFAULT NOW(),
+  modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ( uuid )
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
+```
 ## Using api-messages
 The API responds to different types of requests, which will be explained below.
 Use a “Rest Client” like Postman.
