@@ -2,10 +2,11 @@
 class Database{
 
     // specify your own database credentials
-    private $host = "localhost";
+    private $host = "us-cdbr-east-03.cleardb.com";
     private $db_name = "apimessages";
-    private $username = "root";
-    private $password = "123456";
+    private $username = "bbc08eb1da307f";
+    private $password = "c478dc6e";
+    private database = "heroku_394a42a4b5cb062";
     public $conn;
 
     // get the database connection
@@ -23,4 +24,14 @@ class Database{
         return $this->conn;
     }
 }
+?>
+<?php
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+$conn = new mysqli($server, $username, $password, $db);
 ?>
