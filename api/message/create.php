@@ -22,7 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 // make sure data is not empty
 if(
-    !empty($data->content) && !preg_match('/[A-Z]+[a-z]+[0-9]+/', $data)
+    !empty($data->content) && !preg_match('/\A<\w*>.*<\/\w*>\z/', $data->content)
 ){
 
     // set message property values
