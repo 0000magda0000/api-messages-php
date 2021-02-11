@@ -9,8 +9,5 @@
             "email": "magda.barthofer@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {
-        "vlucas/phpdotenv": "^5.3"
-    }
+
 }
