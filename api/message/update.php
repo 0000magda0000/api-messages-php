@@ -24,8 +24,12 @@ $data = json_decode(file_get_contents("php://input"));
 $message->uuid = $data->uuid;
 
 // set message property values
-$message->content = $data->content;
-$message->counter = $data->counter;
+
+if(
+    !empty($data->content) && !preg_match('/\A<\w*>.*<\/\w*>\z/', $data->content)
+){
+    $message->content = $data->content;
+    $message->counter = $data->counter;
 
 
 // update the message
@@ -45,6 +49,6 @@ else{
     http_response_code(503);
 
     // tell the user
-    echo json_encode(array("message" => "Unable to update message."));
-}
+    echo json_encode(array("message" => "Unable to update message. Are you using html tags?"));
+}}
 ?>
