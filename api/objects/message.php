@@ -44,7 +44,7 @@ class Message{
     $stmt = $this->conn->prepare($query);
 
     // sanitize
-    // $this->content=htmlspecialchars(strip_tags($this->content));
+    $this->content=htmlspecialchars(strip_tags($this->content, "@"));
 
     // bind values
     $stmt->bindParam(":content", $this->content);
