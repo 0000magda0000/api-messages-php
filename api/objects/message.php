@@ -9,8 +9,7 @@ class Message{
     public $uuid;
     public $content;
     public $counter;
-    public $created;
-    public $modified;
+
 
 
     // constructor with $db as database connection
@@ -35,34 +34,34 @@ class Message{
 }
     // create message
     function create(){
-  
+
     // query to insert record
     $query = "INSERT INTO
                 " . $this->table_name . "
             SET
                 content=:content";
-  
+
     // prepare query
     $stmt = $this->conn->prepare($query);
-  
+
     // sanitize
     $this->content=htmlspecialchars(strip_tags($this->content));
-  
+
     // bind values
     $stmt->bindParam(":content", $this->content);
-  
+
     // execute query
     if($stmt->execute()){
         return true;
     }
-  
+
     return false;
-      
+
 }
 
 // used when filling up the update message form
 function readOne(){
-  
+
     // increment counter
     $increment = "UPDATE " . $this->table_name . "
                 SET counter = counter + 1
@@ -71,11 +70,11 @@ function readOne(){
 
 
     // query to read single record
-    $query = "SELECT * 
+    $query = "SELECT *
             FROM " . $this->table_name . "
             WHERE
                 uuid = ?";
-                
+
     // prepare query statement and increment
     $stmt = $this->conn->prepare( $query );
     $incr = $this->conn->prepare( $increment );
@@ -89,21 +88,20 @@ function readOne(){
     $stmt->execute();
     $incr->execute();
 
-  
+
     // get retrieved row
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  
+
     // set values to object properties
     $this->uuid = $row['uuid'];
     $this->content = $row['content'];
     $this->counter = $row['counter'];
-    $this->created = $row['created'];
-    $this->modified = $row['modified'];
+
 }
 
 // update the message
 function update(){
-  
+
     // update query
     $query = "UPDATE
                 " . $this->table_name . "
@@ -111,10 +109,10 @@ function update(){
                 content = :content
             WHERE
                 uuid = :uuid";
-  
+
     // prepare query statement
     $stmt = $this->conn->prepare($query);
-  
+
     // sanitize
     $this->content=htmlspecialchars(strip_tags($this->content));
     $this->uuid=htmlspecialchars(strip_tags($this->uuid));
@@ -123,36 +121,36 @@ function update(){
     $stmt->bindParam(':uuid', $this->uuid);
     $stmt->bindParam(':content', $this->content);
 
-    
-  
+
+
     // execute the query
     if($stmt->execute()){
         return true;
     }
-  
+
     return false;
 }
 
 // delete the message
 function delete(){
-  
+
     // delete query
     $query = "DELETE FROM " . $this->table_name . " WHERE uuid = ?";
-  
+
     // prepare query
     $stmt = $this->conn->prepare($query);
-  
+
     // sanitize
     $this->uuid=htmlspecialchars(strip_tags($this->uuid));
-  
+
     // bind uuid of record to delete
     $stmt->bindParam(1, $this->uuid);
-  
+
     // execute query
     if($stmt->execute()){
         return true;
     }
-  
+
     return false;
 }
 }
