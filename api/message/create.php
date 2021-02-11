@@ -47,7 +47,7 @@ if(
         http_response_code(503);
 
         // tell the user
-        echo json_encode(array("message" => "Unable to create message, does message include html tag?"));
+        echo json_encode(array("message" => "Unable to create message."));
     }
 }
 
@@ -58,6 +58,6 @@ else{
     http_response_code(400);
 
     // tell the user
-    echo json_encode(array("message" => "Unable to create message. Data is incomplete."));
+    echo json_encode(array("message" => "Unable to create message. Data is incomplete, does message include html tag?"));
 }
 ?>
