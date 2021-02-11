@@ -32,14 +32,15 @@ if(
     $message->counter = $data->counter;
 
 
-// update the message
-if($message->update()){
+    // update the message
+    if($message->update()){
 
-    // set response code - 200 ok
-    http_response_code(200);
+        // set response code - 200 ok
+        http_response_code(200);
 
-    // tell the user
-    echo json_encode(array("message" => "message was updated."));
+        // tell the user
+        echo json_encode(array("message" => "message was updated."));
+    }
 }
 
 // if unable to update the message, tell the user
@@ -50,5 +51,5 @@ else{
 
     // tell the user
     echo json_encode(array("message" => "Unable to update message. Are you using html tags?"));
-}}
+}
 ?>
