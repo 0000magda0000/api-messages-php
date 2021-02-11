@@ -1,15 +1,7 @@
 <?php
-// //Get Heroku ClearDB connection information
-// $url = parse_url(getenv("DATABASE_URL"));
-// $server = $url["host"];
-// $username = $url["user"];
-// $password = $url["pass"];
-// $db = substr($url["path"],1);
-// $active_group = 'default';
-// $query_builder = TRUE;
-// // Connect to DB
-// $conn = mysqli_connect($server, $username, $password, $db);
-
+  require __DIR__ . '../vendor/autoload.php';
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
 class Database{
 
     // specify database credentials
