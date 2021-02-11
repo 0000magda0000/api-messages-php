@@ -9,11 +9,10 @@ class Database{
     private $password;
 
     public function __construct() {
-      $this->url = parse_url(getenv("DATABASE_URL"));
-      $this->host = $url["host"];
-      $this->db_name = substr($url["path"], 1);
-      $this->username = $url["user"];
-      $this->password = $url["pass"];
+      $this->host = getenv("DB_HOST");
+      $this->db_name = getenv("DB_DATABASE");
+      $this->username = getenv("DB_USERNAME");
+      $this->password = getenv("DB_PASSWORD");
     }
 
     public $conn;
