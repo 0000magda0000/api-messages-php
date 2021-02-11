@@ -113,7 +113,7 @@ function update(){
     $stmt = $this->conn->prepare($query);
 
     // sanitize
-    $this->content=htmlspecialchars(strip_tags($this->content));
+    $this->content=htmlspecialchars(strip_tags($this->content, "@"));
     $this->uuid=htmlspecialchars(strip_tags($this->uuid));
 
     // bind new values
