@@ -1,6 +1,7 @@
 <?php
+  $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+  $dotenv->load();
 class Message{
-
     // database connection and table name
     private $conn;
     private $table_name = "messages";
