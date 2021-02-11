@@ -2,17 +2,16 @@
 class Database{
 
     // specify database credentials
-    private $url;
     private $host;
     private $db_name;
     private $username;
     private $password;
 
     public function __construct() {
-      $this->host = getenv("DB_HOST");
-      $this->db_name = getenv("DB_DATABASE");
-      $this->username = getenv("DB_USERNAME");
-      $this->password = getenv("DB_PASSWORD");
+      $this->host = getenv("DB_HOST_J");
+      $this->db_name = getenv("DB_DATABASE_J");
+      $this->username = getenv("DB_USERNAME_J");
+      $this->password = getenv("DB_PASSWORD_J");
     }
 
     public $conn;
